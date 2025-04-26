@@ -1,12 +1,31 @@
 import java.util.*;
 public class RandomStringChooser
 {
-private ArrayList<String> valuesRemaining;
+ private String[] values;
+    private int valuesRemaining;
 
-    public RandomStringChooser(String[] values)
+    public RandomStringChooser(String[] vals)
     {
-        valuesRemaining = new ArrayList<String>();
+        values = new String[vals.length];
 
-        for(String value : values)
-            valuesRemaining.add(value);
+        for(int i = 0; i < values.length; i++)
+            values[i] = vals[i];
+
+        valuesRemaining = values.length;
+    }
+
+    public String getNext()
+    {
+        if(valuesRemaining == 0)
+            return "NONE";
+
+        int index = (int) (Math.random() * valuesRemaining);
+
+        String selected = values[index];
+        values[index] = values[valuesRemaining - 1];
+
+        valuesRemaining--;
+
+        return selected;
+    }
 }
