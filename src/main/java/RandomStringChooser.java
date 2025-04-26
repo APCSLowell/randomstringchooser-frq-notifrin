@@ -1,8 +1,12 @@
 import java.util.*;
 public class RandomStringChooser
 {
-  /* to be implemented in part (a) */
-  
-  //Heads up! 
-  //You will get a very confusing error message until you have working code in part b as well
+private ArrayList<String> valuesRemaining;
+
+    public RandomStringChooser(String[] values)
+    {
+        valuesRemaining = new ArrayList<String>();
+
+        for(String value : values)
+            valuesRemaining.add(value);
 }
